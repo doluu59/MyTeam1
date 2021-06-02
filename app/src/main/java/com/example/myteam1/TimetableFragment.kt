@@ -13,6 +13,8 @@ class TimetableFragment : Fragment() {
     var binding: FragmentTimetableBinding?=null
     lateinit var layoutManager: LinearLayoutManager
     lateinit var adapter: TimetableRVA
+
+    var timetableDataList=ArrayList<timetableData>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +35,9 @@ class TimetableFragment : Fragment() {
 
     fun initRecyclerView() {
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        adapter = TimetableRVA()    //파라미터로 시간표 리스트의 배열 전달
+        adapter = TimetableRVA(timetableDataList)    //파라미터로 시간표 리스트의 배열 전달
         adapter.itemCLickListener = object :TimetableRVA.OnItemClickListener {
-            override fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: MyData, position: Int) {    //data로 시간표 리스트 하나씩을 전체 객체로 받아야함
+            override fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: timetableData, position: Int) {    //data로 시간표 리스트 하나씩을 전체 객체로 받아야함
                 //각 시간표 항목 눌렀을 때 사항.
                 //해당 시간표 리스트에 대해 수정하거나 등등
             }

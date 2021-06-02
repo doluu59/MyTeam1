@@ -16,8 +16,6 @@ class MemoFragment : Fragment() {
     var binding: FragmentMemoBinding?=null
     var tempList=ArrayList<memoData>()
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
